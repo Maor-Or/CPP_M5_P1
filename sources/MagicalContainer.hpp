@@ -10,9 +10,10 @@ namespace ariel
         class Iterator
         {
         protected:
+        MagicalContainer &container;
         public:
             // Ctors & Dtors:
-            Iterator(MagicalContainer container);
+            Iterator(MagicalContainer& container);
             ~Iterator();
 
             // functions to implement:
@@ -20,6 +21,7 @@ namespace ariel
             Iterator end();
             Iterator &operator++();
             int operator*();
+            Iterator & operator=(const Iterator &other);
             bool operator!=(const Iterator &other) const;
             bool operator==(const Iterator &other) const;
             bool operator>(const Iterator &other) const;

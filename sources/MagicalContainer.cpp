@@ -17,14 +17,12 @@ namespace ariel
     int MagicalContainer::size() { return 0; }
     void MagicalContainer::removeElement(int number) {}
 
-    
-    
     // classes to implement:
 
     // class MagicalContainer::Iterator:
 
     // Ctors & Dtors:
-    MagicalContainer::Iterator::Iterator(MagicalContainer container) {}
+    MagicalContainer::Iterator::Iterator(MagicalContainer& con):container(con) {}
     MagicalContainer::Iterator::~Iterator() {}
 
     // functions to implement:
@@ -33,28 +31,30 @@ namespace ariel
     MagicalContainer::Iterator &MagicalContainer::Iterator::operator++() { return *this; } // prefix
     bool MagicalContainer::Iterator::operator>(const Iterator &other) const { return false; }
     bool MagicalContainer::Iterator::operator<(const Iterator &other) const { return false; }
+    MagicalContainer::Iterator & MagicalContainer::Iterator::operator=(const Iterator &other) 
+    {
+        return *this;
+    }
     bool MagicalContainer::Iterator::operator==(
-        const MagicalContainer::Iterator &other) const{return true;}
+        const MagicalContainer::Iterator &other) const { return true; }
     bool MagicalContainer::Iterator::operator!=(
-        const MagicalContainer::Iterator &other) const{return !(*this == other);}
+        const MagicalContainer::Iterator &other) const { return !(*this == other); }
 
     int MagicalContainer::Iterator::operator*()
     {
         return 1;
     }
 
-
     // class MagicalContainer::AscendingIterator:
 
     // Ctors & Dtors:
-    MagicalContainer::AscendingIterator::AscendingIterator(MagicalContainer container):Iterator(container) {}
+    MagicalContainer::AscendingIterator::AscendingIterator(MagicalContainer container) : Iterator(container) {}
     MagicalContainer::AscendingIterator::~AscendingIterator() {}
-
 
     // // class MagicalContainer::SideCrossIterator;
 
     // Ctors & Dtors:
-    MagicalContainer::SideCrossIterator::SideCrossIterator(MagicalContainer container) :Iterator(container){}
+    MagicalContainer::SideCrossIterator::SideCrossIterator(MagicalContainer container) : Iterator(container) {}
     MagicalContainer::SideCrossIterator::~SideCrossIterator() {}
 
     // // functions to implement:
@@ -81,7 +81,7 @@ namespace ariel
     // // class MagicalContainer::PrimeIterator;
 
     // Ctors & Dtors:
-    MagicalContainer::PrimeIterator::PrimeIterator(MagicalContainer container):Iterator(container) {}
+    MagicalContainer::PrimeIterator::PrimeIterator(MagicalContainer container) : Iterator(container) {}
     MagicalContainer::PrimeIterator::~PrimeIterator() {}
 
     // // functions to implement:
