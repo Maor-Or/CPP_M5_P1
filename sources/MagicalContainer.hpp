@@ -6,10 +6,10 @@ namespace ariel
     class MagicalContainer
     {
     private:
- // private classe to implement:
+        // private Iterator class to implement:
         class Iterator
         {
-        private:
+        protected:
         public:
             // Ctors & Dtors:
             Iterator(MagicalContainer container);
@@ -36,8 +36,7 @@ namespace ariel
         int size();
         void removeElement(int number);
 
-       
-        // classes to implement:
+        // public classes to implement:
 
         class AscendingIterator : public Iterator
         {
